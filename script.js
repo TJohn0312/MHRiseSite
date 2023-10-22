@@ -1,4 +1,5 @@
 // thunder el and ice need to be switched in web scraper
+<<<<<<< HEAD
 let out = "";
 let i = 10;
 let selectedSkills = "Weakness Exploit Lv 2"
@@ -55,5 +56,4 @@ do {
         })
     console.log("finished rarity "+i) 
     i--
-}
-while (i>0)
+=======
