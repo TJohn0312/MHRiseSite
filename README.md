@@ -5,6 +5,11 @@ started rudimentary search function
 use regex to search for all LV's of selectedSkills
 store what lv is selected though
 
-make selctedSkills an array to search for multiple skills
-
 organise skills by level & priority
+
+make front end
+
+
+## optionally:
+------
+update db to new one with correct order of elements

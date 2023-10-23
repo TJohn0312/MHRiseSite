@@ -1,7 +1,7 @@
 // thunder el and ice need to be switched in web scraper
 let out = "";
 let i = 10;
-let selectedSkills = "Weakness Exploit Lv 2"
+let selectedSkills = ["Weakness Exploit Lv 2", "Dragonheart Lv 1"]
 do {
     console.log("starting rarity "+i) 
     fetch("./data/rarity"+i+".json")
@@ -13,7 +13,9 @@ do {
             for(let product of products){
                 let armorSkills = product.skills
                 console.log(armorSkills)
-                if (armorSkills.includes(selectedSkills)) {
+                // if (armorSkills.includes(selectedSkills)) {
+                    if (selectedSkills.some(x => armorSkills.includes(x))) {
+                        // look if armorSkills includes anything from in selectecSkills
                     out += `
                         <tr>
                             <td>${product.title}</td>
