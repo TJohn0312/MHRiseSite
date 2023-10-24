@@ -12,4 +12,3 @@ make front end
 
 ## optionally:
 ------
-update db to new one with correct order of elements
