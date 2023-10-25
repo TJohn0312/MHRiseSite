@@ -2,8 +2,7 @@ started rudimentary search function
 
 # todo:
 ------
-use regex to search for all LV's of selectedSkills
-store what lv is selected though
+sort based on priority
 
 organise skills by level & priority
 
@@ -12,3 +11,7 @@ make front end
 
 ## optionally:
 ------
+inslude slots in priority
+
+add "Lv " before skill lv
+must detect if there is a skill present

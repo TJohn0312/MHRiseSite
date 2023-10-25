@@ -1,7 +1,7 @@
 // thunder el and ice need to be switched in web scraper
 let out = "";
 let i = 10;
-let selectedSkills = ["Weakness Exploit", "Dragonheart"]
+const selectedSkills = ["Weakness Exploit", "Dragonheart", "Burst"]
 do {
     console.log("starting rarity "+i) 
     fetch("./data/rarity"+i+".json")
@@ -11,11 +11,21 @@ do {
         .then(function(products){
             let dataOut = document.querySelector("#data-output");
             for(let product of products){
-                let armorSkills = product.skills
-                console.log(armorSkills)
-                // if (armorSkills.includes(selectedSkills)) {
-                    if (selectedSkills.some(x => armorSkills.includes(x))) {
-                        // look if armorSkills includes anything from in selectecSkills
+                const armorSkills = product.skills
+
+                // if armorSkills is in selectedSkills grab the value
+                let num = armorSkills.reduce((acc, cur, i) => i % 2 === 1 && selectedSkills.includes(armorSkills[i-1]) ? acc + cur : acc, 0)
+
+                // sum the values given from above
+                let sum = 0
+                while (num) {
+                    sum += num % 10;
+                    num = Math.floor(num / 10);
+                }
+                product.priority = sum;
+
+                if (selectedSkills.some(x => armorSkills.includes(x))) {
+                    // look if armorSkills includes anything from in selectecSkills
                     out += `
                         <tr>
                             <td>${product.title}</td>
@@ -51,6 +61,7 @@ do {
                             </td>
                         </tr>
                         `
+
                 }
             }
             dataOut.innerHTML = out;
